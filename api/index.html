@@ -1,0 +1,1394 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="User, deployment, and API documentation for the MulAn multispectral image viewer and annotator">
+      
+      
+        <meta name="author" content="TEXTaiLES and Athena Research Center">
+      
+      
+        <link rel="canonical" href="https://textailes.github.io/mulan-documentation/api/">
+      
+      
+        <link rel="prev" href="../deployment/docker/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/mulan-mark.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>API - MulAn Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="white" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#http-api" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="MulAn Documentation" class="md-header__button md-logo" aria-label="MulAn Documentation" data-md-component="logo">
+      
+  <img src="../assets/mulan-mark.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            MulAn Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              API
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/TEXTaiLES/MulAn" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    TEXTaiLES/MulAn
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="MulAn Documentation" class="md-nav__button md-logo" aria-label="MulAn Documentation" data-md-component="logo">
+      
+  <img src="../assets/mulan-mark.svg" alt="logo">
+
+    </a>
+    MulAn Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/TEXTaiLES/MulAn" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    TEXTaiLES/MulAn
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manual
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Manual
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/converter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Converter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/image-viewer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Image viewer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/image-annotator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Image annotator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Deployment
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker deployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#conventions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conventions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#endpoint-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Endpoint summary
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Endpoint summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#public-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public API
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ui-editing-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UI editing API
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bmp-conversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BMP conversion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#image-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Image resources
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#annotation-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Annotation resources
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Annotation resources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mask-import-and-replacement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mask import and replacement
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#editing-operations-and-revisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Editing operations and revisions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Editing operations and revisions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overlay" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overlay
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#export-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Export contract
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cleanup-and-storage-semantics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cleanup and storage semantics
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#conventions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conventions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#endpoint-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Endpoint summary
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Endpoint summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#public-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public API
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ui-editing-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UI editing API
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bmp-conversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BMP conversion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#image-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Image resources
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#annotation-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Annotation resources
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Annotation resources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mask-import-and-replacement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mask import and replacement
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#editing-operations-and-revisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Editing operations and revisions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Editing operations and revisions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overlay" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overlay
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#export-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Export contract
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cleanup-and-storage-semantics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cleanup and storage semantics
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="http-api">HTTP API<a class="headerlink" href="#http-api" title="Permanent link">&para;</a></h1>
+<p>MulAn exposes stable resource endpoints under <code>/api/v1</code>, UI editing endpoints under <code>/api/internal/v1</code>, and a health endpoint at <code>/api/health</code>. API state is identified by UUIDs and does not depend on cookies.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>No endpoint is authenticated in MulAn v1. Apply access control outside the application before exposing it beyond a trusted single-user environment.</p>
+</div>
+<h2 id="conventions">Conventions<a class="headerlink" href="#conventions" title="Permanent link">&para;</a></h2>
+<ul>
+<li>JSON requests use <code>Content-Type: application/json</code>.</li>
+<li>Uploads use <code>multipart/form-data</code>; do not set its boundary manually.</li>
+<li>TIFF downloads use <code>image/tiff</code>, previews and overlays use <code>image/png</code>, and packages use <code>application/zip</code>.</li>
+<li>Channel indexes in URLs are zero-based. Class IDs are unsigned integers from <code>0</code> through <code>65535</code>.</li>
+<li>Successful deletion returns <code>204 No Content</code>.</li>
+<li>Boolean form/query fields accept <code>true</code>, <code>false</code>, <code>1</code>, <code>0</code>, <code>yes</code>, or <code>no</code>, case-insensitively.</li>
+</ul>
+<p>Errors have one shape:</p>
+<pre><code class="language-json">{
+  &quot;error&quot;: {
+    &quot;code&quot;: &quot;dimension_mismatch&quot;,
+    &quot;message&quot;: &quot;All BMP images must have identical dimensions.&quot;,
+    &quot;details&quot;: {}
+  }
+}
+</code></pre>
+<p>Clients should branch on <code>error.code</code>, not the human-readable message. Common status meanings are <code>400</code> malformed input, <code>404</code> unknown resource, <code>409</code> state conflict, <code>413</code> request too large, <code>415</code> unsupported file type, <code>422</code> valid request with unsupported or inconsistent content, and <code>500</code> corrupt stored data or an unexpected server error.</p>
+<h2 id="endpoint-summary">Endpoint summary<a class="headerlink" href="#endpoint-summary" title="Permanent link">&para;</a></h2>
+<h3 id="public-api">Public API<a class="headerlink" href="#public-api" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Method and path</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST /api/v1/convert/bmp-to-tiff</code></td>
+<td>Convert ordered BMP inputs to a TIFF download or image resource.</td>
+</tr>
+<tr>
+<td><code>POST /api/v1/images</code></td>
+<td>Upload a TIFF and create an image resource.</td>
+</tr>
+<tr>
+<td><code>GET /api/v1/images/{image_id}</code></td>
+<td>Read image metadata.</td>
+</tr>
+<tr>
+<td><code>GET /api/v1/images/{image_id}/file</code></td>
+<td>Download the unchanged source TIFF.</td>
+</tr>
+<tr>
+<td><code>GET /api/v1/images/{image_id}/channels/{channel_index}/preview</code></td>
+<td>Render one display preview.</td>
+</tr>
+<tr>
+<td><code>DELETE /api/v1/images/{image_id}</code></td>
+<td>Delete an image not referenced by an annotation.</td>
+</tr>
+<tr>
+<td><code>POST /api/v1/annotations</code></td>
+<td>Create an annotation from an image resource or direct TIFF upload.</td>
+</tr>
+<tr>
+<td><code>GET /api/v1/annotations/{annotation_id}</code></td>
+<td>Read annotation state and class statistics.</td>
+</tr>
+<tr>
+<td><code>GET /api/v1/annotations/{annotation_id}/mask</code></td>
+<td>Download the current canonical mask TIFF.</td>
+</tr>
+<tr>
+<td><code>PUT /api/v1/annotations/{annotation_id}/mask</code></td>
+<td>Replace the mask and optionally its class metadata.</td>
+</tr>
+<tr>
+<td><code>POST /api/v1/annotations/{annotation_id}/classes</code></td>
+<td>Add a class with the next stable ID.</td>
+</tr>
+<tr>
+<td><code>PATCH /api/v1/annotations/{annotation_id}/classes/{class_id}</code></td>
+<td>Edit a class.</td>
+</tr>
+<tr>
+<td><code>DELETE /api/v1/annotations/{annotation_id}/classes/{class_id}</code></td>
+<td>Delete a class and reset its pixels to 0.</td>
+</tr>
+<tr>
+<td><code>GET /api/v1/annotations/{annotation_id}/export</code></td>
+<td>Download a mask package, optionally including the source.</td>
+</tr>
+<tr>
+<td><code>DELETE /api/v1/annotations/{annotation_id}</code></td>
+<td>Delete an annotation and, for direct-upload annotations, its owned image.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ui-editing-api">UI editing API<a class="headerlink" href="#ui-editing-api" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Method and path</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST /api/internal/v1/annotations/{annotation_id}/operations</code></td>
+<td>Apply one source-coordinate raster operation.</td>
+</tr>
+<tr>
+<td><code>POST /api/internal/v1/annotations/{annotation_id}/undo</code></td>
+<td>Undo the latest retained mask patch.</td>
+</tr>
+<tr>
+<td><code>POST /api/internal/v1/annotations/{annotation_id}/redo</code></td>
+<td>Redo the latest undone mask patch.</td>
+</tr>
+<tr>
+<td><code>POST /api/internal/v1/annotations/{annotation_id}/save</code></td>
+<td>Set <code>saved_revision</code> to the current revision.</td>
+</tr>
+<tr>
+<td><code>GET /api/internal/v1/annotations/{annotation_id}/overlay</code></td>
+<td>Render a transparent class-colour overlay.</td>
+</tr>
+<tr>
+<td><code>PATCH /api/internal/v1/annotations/{annotation_id}/class-order</code></td>
+<td>Replace class presentation order.</td>
+</tr>
+<tr>
+<td><code>POST /api/internal/v1/cleanup</code></td>
+<td>Remove resources older than the configured TTL.</td>
+</tr>
+</tbody>
+</table>
+<p>The internal namespace is implemented for the bundled browser client. Integrations may use it, but should pin a MulAn version and expect it to evolve independently of <code>/api/v1</code>.</p>
+<h2 id="bmp-conversion">BMP conversion<a class="headerlink" href="#bmp-conversion" title="Permanent link">&para;</a></h2>
+<p>Send repeated <code>files</code> fields in the desired band-group order. Grayscale contributes one band; RGB contributes three adjacent bands in R, G, B order. All files must have matching dimensions and compatible integer datatypes.</p>
+<table>
+<thead>
+<tr>
+<th>Form field</th>
+<th>Required</th>
+<th>Contract</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>files</code></td>
+<td>yes</td>
+<td>Repeated <code>.bmp</code> uploads, in output order.</td>
+</tr>
+<tr>
+<td><code>channel_names</code></td>
+<td>no</td>
+<td>JSON array containing one string or <code>null</code> per <strong>expanded output band</strong>.</td>
+</tr>
+<tr>
+<td><code>manifest</code></td>
+<td>no</td>
+<td>JSON object described below; cannot conflict with <code>channel_names</code>.</td>
+</tr>
+<tr>
+<td><code>response_mode</code></td>
+<td>no</td>
+<td><code>direct</code> (default) or <code>resource</code>.</td>
+</tr>
+<tr>
+<td><code>output_name</code></td>
+<td>no</td>
+<td>Safe download filename; a TIFF extension is enforced.</td>
+</tr>
+</tbody>
+</table>
+<p>Direct response example:</p>
+<pre><code class="language-sh">curl -X POST \
+  -F &quot;files=@450.bmp&quot; \
+  -F &quot;files=@550.bmp&quot; \
+  -F &quot;files=@850.bmp&quot; \
+  -F 'channel_names=[&quot;450nm&quot;,&quot;550nm&quot;,&quot;850nm&quot;]' \
+  -F &quot;response_mode=direct&quot; \
+  http://localhost:5000/api/v1/convert/bmp-to-tiff \
+  --output multispectral.tif
+</code></pre>
+<p>A direct response is the TIFF and includes <code>X-Channel-Count</code>. With <code>response_mode=resource</code>, success is <code>201</code> and returns:</p>
+<pre><code class="language-json">{
+  &quot;image_id&quot;: &quot;4b35bceb-a188-4d43-a348-a88704f95db5&quot;,
+  &quot;filename&quot;: &quot;multispectral.tif&quot;,
+  &quot;width&quot;: 2048,
+  &quot;height&quot;: 1536,
+  &quot;channel_count&quot;: 3,
+  &quot;channel_names&quot;: [&quot;450nm&quot;, &quot;550nm&quot;, &quot;850nm&quot;],
+  &quot;download_url&quot;: &quot;/api/v1/images/4b35bceb-a188-4d43-a348-a88704f95db5/file&quot;
+}
+</code></pre>
+<p>The advanced <code>manifest</code> form is:</p>
+<pre><code class="language-json">{
+  &quot;bands&quot;: [
+    {&quot;file_index&quot;: 0, &quot;name&quot;: &quot;450nm&quot;},
+    {&quot;file_index&quot;: 1, &quot;name&quot;: &quot;visible&quot;}
+  ]
+}
+</code></pre>
+<p>It must contain exactly one unique, in-range <code>file_index</code> entry per input file. A name assigned to an RGB file expands to <code>visible:R</code>, <code>visible:G</code>, and <code>visible:B</code>. The manifest may contain no top-level property other than <code>bands</code>.</p>
+<h2 id="image-resources">Image resources<a class="headerlink" href="#image-resources" title="Permanent link">&para;</a></h2>
+<p>Upload and retrieve metadata:</p>
+<pre><code class="language-sh">curl -X POST -F &quot;file=@multispectral.tif&quot; \
+  http://localhost:5000/api/v1/images
+
+curl http://localhost:5000/api/v1/images/IMAGE_ID
+</code></pre>
+<p>Successful upload returns <code>201</code> with:</p>
+<pre><code class="language-json">{
+  &quot;image_id&quot;: &quot;IMAGE_ID&quot;,
+  &quot;filename&quot;: &quot;multispectral.tif&quot;,
+  &quot;width&quot;: 2048,
+  &quot;height&quot;: 1536,
+  &quot;channel_count&quot;: 5,
+  &quot;dtype&quot;: &quot;uint16&quot;,
+  &quot;channel_names&quot;: [&quot;450nm&quot;, &quot;550nm&quot;, &quot;650nm&quot;, &quot;750nm&quot;, &quot;850nm&quot;],
+  &quot;georeferenced&quot;: false
+}
+</code></pre>
+<p><code>dtype</code> is <code>mixed</code> when TIFF bands do not report one common datatype. <code>channel_names</code> preserves missing descriptions as <code>null</code>. <code>georeferenced</code> reports whether the source has a CRS.</p>
+<p>Download the byte-preserved upload or request a zero-based channel preview:</p>
+<pre><code class="language-sh">curl -o original.tif http://localhost:5000/api/v1/images/IMAGE_ID/file
+curl -o channel.png \
+  &quot;http://localhost:5000/api/v1/images/IMAGE_ID/channels/0/preview?max_size=800&amp;normalization=percentile&quot;
+</code></pre>
+<p><code>max_size</code> must be 32–4096 and limits the larger output dimension without upscaling. <code>normalization</code> is <code>percentile</code> (2nd–98th percentile, default) or <code>minmax</code>. Preview resampling is bilinear and the result is an 8-bit grayscale PNG cached by image ID, channel, size, and normalization.</p>
+<p>Deleting an image referenced by any active annotation returns <code>409 image_in_use</code>.</p>
+<h2 id="annotation-resources">Annotation resources<a class="headerlink" href="#annotation-resources" title="Permanent link">&para;</a></h2>
+<p>Create from an existing image:</p>
+<pre><code class="language-sh">curl -X POST -F &quot;image_id=IMAGE_ID&quot; \
+  http://localhost:5000/api/v1/annotations
+</code></pre>
+<p>Or create from a direct upload:</p>
+<pre><code class="language-sh">curl -X POST -F &quot;image=@multispectral.tif&quot; \
+  http://localhost:5000/api/v1/annotations
+</code></pre>
+<p>Exactly one of <code>image_id</code> and <code>image</code> is required. Either form may also include <code>mask=@mask.tif</code> and <code>metadata=@annotations.json</code>. A direct-upload annotation owns its created image; deleting that annotation also deletes the image. An annotation created from an existing <code>image_id</code> does not own it.</p>
+<p>Annotation state includes dimensions, revision counters, classes, per-class pixel statistics, and history availability:</p>
+<pre><code class="language-json">{
+  &quot;annotation_id&quot;: &quot;ANNOTATION_ID&quot;,
+  &quot;image_id&quot;: &quot;IMAGE_ID&quot;,
+  &quot;filename&quot;: &quot;multispectral.tif&quot;,
+  &quot;width&quot;: 2048,
+  &quot;height&quot;: 1536,
+  &quot;channel_count&quot;: 5,
+  &quot;revision&quot;: 7,
+  &quot;saved_revision&quot;: 6,
+  &quot;mask_dtype&quot;: &quot;uint16&quot;,
+  &quot;classes&quot;: [
+    {&quot;id&quot;: 0, &quot;name&quot;: &quot;Background&quot;, &quot;description&quot;: &quot;&quot;, &quot;color&quot;: &quot;#000000&quot;, &quot;order&quot;: 0},
+    {&quot;id&quot;: 1, &quot;name&quot;: &quot;Stain&quot;, &quot;description&quot;: &quot;&quot;, &quot;color&quot;: &quot;#735FA4&quot;, &quot;order&quot;: 1}
+  ],
+  &quot;statistics&quot;: [
+    {&quot;class_id&quot;: 0, &quot;pixel_count&quot;: 3115000},
+    {&quot;class_id&quot;: 1, &quot;pixel_count&quot;: 305728}
+  ],
+  &quot;can_undo&quot;: true,
+  &quot;can_redo&quot;: false
+}
+</code></pre>
+<p>The internal canonical mask is <code>uint16</code>; an exported mask is narrowed to <code>uint8</code> when its maximum ID is at most 255.</p>
+<h3 id="classes">Classes<a class="headerlink" href="#classes" title="Permanent link">&para;</a></h3>
+<p>Add a class with a non-empty name and six-digit hexadecimal colour:</p>
+<pre><code class="language-http">POST /api/v1/annotations/ANNOTATION_ID/classes
+Content-Type: application/json
+</code></pre>
+<pre><code class="language-json">{&quot;name&quot;:&quot;Stain&quot;,&quot;description&quot;:&quot;Discoloured fibre&quot;,&quot;color&quot;:&quot;#735FA4&quot;}
+</code></pre>
+<p>The server assigns the ID and order. <code>PATCH</code> accepts only <code>name</code>, <code>description</code>, <code>color</code>, and <code>order</code>. Deleting class 0 is forbidden. Deleting another class changes exactly its pixels to Background, never renumbers IDs, increments the revision, and clears operation history.</p>
+<p>Use the internal class-order endpoint to atomically reorder all classes:</p>
+<pre><code class="language-json">{&quot;class_ids&quot;:[0,3,1,2]}
+</code></pre>
+<p>The array must contain every existing class ID exactly once.</p>
+<h3 id="mask-import-and-replacement">Mask import and replacement<a class="headerlink" href="#mask-import-and-replacement" title="Permanent link">&para;</a></h3>
+<pre><code class="language-sh">curl -X PUT \
+  -F &quot;mask=@mask.tif&quot; \
+  -F &quot;metadata=@annotations.json&quot; \
+  -F &quot;overwrite=true&quot; \
+  http://localhost:5000/api/v1/annotations/ANNOTATION_ID/mask
+</code></pre>
+<p><code>mask</code> may be a <code>.tif</code>, <code>.tiff</code>, or ZIP containing <code>mask.tif</code>; a package may also contain <code>annotations.json</code>. The raster must be a one-band integer GTiff with source-matching dimensions, non-negative values, and a maximum ID of 65535. Metadata must use format <code>mulan-semantic-segmentation</code>, version <code>1.0</code>, <code>background_id: 0</code>, and <code>ignore_id: null</code>.</p>
+<p>When the current annotation has painted pixels or more than Background, replacement requires <code>overwrite=true</code> or returns <code>409 overwrite_required</code>. Replacement records one full-mask history patch with old and new class metadata.</p>
+<h2 id="editing-operations-and-revisions">Editing operations and revisions<a class="headerlink" href="#editing-operations-and-revisions" title="Permanent link">&para;</a></h2>
+<p>Drawing operations are optimistic: send the current <code>revision</code> as <code>base_revision</code>. A stale value returns <code>409 revision_conflict</code> with <code>details.current_revision</code>; fetch current annotation state before retrying or reconciling.</p>
+<pre><code class="language-http">POST /api/internal/v1/annotations/ANNOTATION_ID/operations
+Content-Type: application/json
+</code></pre>
+<pre><code class="language-json">{
+  &quot;base_revision&quot;: 7,
+  &quot;tool&quot;: &quot;brush_add&quot;,
+  &quot;class_id&quot;: 1,
+  &quot;radius&quot;: 12,
+  &quot;points&quot;: [{&quot;x&quot;: 120.5, &quot;y&quot;: 85.0}, {&quot;x&quot;: 124.0, &quot;y&quot;: 88.5}]
+}
+</code></pre>
+<p>Coordinates and radius are expressed in source pixels. Points must be finite numbers. Supported tools and minimum points are:</p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th style="text-align: right;">Minimum points</th>
+<th>Pixel effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>brush_add</code></td>
+<td style="text-align: right;">1</td>
+<td>Set selected pixels to <code>class_id</code>; requires positive finite <code>radius</code> within image extent.</td>
+</tr>
+<tr>
+<td><code>erase</code></td>
+<td style="text-align: right;">1</td>
+<td>Set selected pixels equal to <code>class_id</code> to 0; also requires <code>radius</code>.</td>
+</tr>
+<tr>
+<td><code>lasso_add</code></td>
+<td style="text-align: right;">3</td>
+<td>Fill polygon with <code>class_id</code>.</td>
+</tr>
+<tr>
+<td><code>lasso_subtract</code></td>
+<td style="text-align: right;">3</td>
+<td>Set pixels equal to <code>class_id</code> inside polygon to 0.</td>
+</tr>
+<tr>
+<td><code>rectangle_add</code></td>
+<td style="text-align: right;">2</td>
+<td>Fill the axis-aligned rectangle with <code>class_id</code>.</td>
+</tr>
+<tr>
+<td><code>rectangle_subtract</code></td>
+<td style="text-align: right;">2</td>
+<td>Set pixels equal to <code>class_id</code> inside the rectangle to 0.</td>
+</tr>
+</tbody>
+</table>
+<p>Background (<code>class_id: 0</code>) cannot be active. Successful changes increment <code>revision</code> and return revision/history flags. A no-op does not increment it, but still clears an existing redo branch. History holds at most 50 compressed mask patches.</p>
+<p>Undo and redo each increment the revision because they create a new current state. <code>save</code> does not persist elsewhere; it only sets <code>saved_revision = revision</code> after verifying that every mask ID has corresponding class metadata.</p>
+<h3 id="overlay">Overlay<a class="headerlink" href="#overlay" title="Permanent link">&para;</a></h3>
+<pre><code class="language-http">GET /api/internal/v1/annotations/ANNOTATION_ID/overlay?max_size=1600&amp;visible_ids=1,3
+</code></pre>
+<p><code>max_size</code> must be 32–4096. <code>visible_ids</code> is an optional comma-separated integer set. The response is a transparent PNG; non-background class pixels use their class colour with alpha 130. Downsampling uses nearest-neighbour resampling to preserve labels.</p>
+<h2 id="export-contract">Export contract<a class="headerlink" href="#export-contract" title="Permanent link">&para;</a></h2>
+<pre><code class="language-sh">curl -o annotation-mask.zip \
+  &quot;http://localhost:5000/api/v1/annotations/ANNOTATION_ID/export?include_image=false&quot;
+curl -o annotation.zip \
+  &quot;http://localhost:5000/api/v1/annotations/ANNOTATION_ID/export?include_image=true&quot;
+</code></pre>
+<p>The package always contains <code>mask.tif</code> and <code>annotations.json</code>; <code>include_image=true</code> adds the unchanged source as <code>image.tif</code>. The mask is one band, has description <code>Semantic class ID</code>, and includes TIFF tags <code>MULAN_FORMAT</code>, <code>MULAN_VERSION</code>, and <code>BACKGROUND_ID</code>. Source CRS and affine transform are copied only when the source is georeferenced.</p>
+<p><code>annotations.json</code> has this canonical shape:</p>
+<pre><code class="language-json">{
+  &quot;format&quot;: &quot;mulan-semantic-segmentation&quot;,
+  &quot;version&quot;: &quot;1.0&quot;,
+  &quot;image&quot;: {
+    &quot;filename&quot;: &quot;multispectral.tif&quot;,
+    &quot;width&quot;: 2048,
+    &quot;height&quot;: 1536,
+    &quot;channels&quot;: 5,
+    &quot;channel_names&quot;: [&quot;450nm&quot;, &quot;550nm&quot;, &quot;650nm&quot;, &quot;750nm&quot;, &quot;850nm&quot;]
+  },
+  &quot;mask&quot;: {
+    &quot;filename&quot;: &quot;mask.tif&quot;,
+    &quot;dtype&quot;: &quot;uint8&quot;,
+    &quot;background_id&quot;: 0,
+    &quot;ignore_id&quot;: null
+  },
+  &quot;classes&quot;: [
+    {&quot;id&quot;: 0, &quot;name&quot;: &quot;Background&quot;, &quot;description&quot;: &quot;&quot;, &quot;color&quot;: &quot;#000000&quot;},
+    {&quot;id&quot;: 1, &quot;name&quot;: &quot;Stain&quot;, &quot;description&quot;: &quot;Discoloured fibre&quot;, &quot;color&quot;: &quot;#735FA4&quot;}
+  ]
+}
+</code></pre>
+<h2 id="cleanup-and-storage-semantics">Cleanup and storage semantics<a class="headerlink" href="#cleanup-and-storage-semantics" title="Permanent link">&para;</a></h2>
+<p>Resources live below <code>MULAN_DATA_DIR</code> and expire by directory modification time. Cleanup runs at application startup and on:</p>
+<pre><code class="language-http">POST /api/internal/v1/cleanup
+</code></pre>
+<p>The response is <code>{"removed": N}</code>. Expired annotations are removed first. An image is preserved while a surviving annotation references it. There is no authentication, database transaction, resource-list endpoint, or multi-instance locking in v1; consumers must retain UUIDs and download durable outputs themselves.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 TEXTaiLES &middot; Athena Research Center
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/TEXTaiLES/MulAn" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>

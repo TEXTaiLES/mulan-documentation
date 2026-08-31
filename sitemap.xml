@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://textailes.github.io/mulan-documentation/</loc>
+         <lastmod>2026-08-31</lastmod>
+    </url>
+    <url>
+         <loc>https://textailes.github.io/mulan-documentation/api/</loc>
+         <lastmod>2026-08-31</lastmod>
+    </url>
+    <url>
+         <loc>https://textailes.github.io/mulan-documentation/deployment/docker/</loc>
+         <lastmod>2026-08-31</lastmod>
+    </url>
+    <url>
+         <loc>https://textailes.github.io/mulan-documentation/manual/converter/</loc>
+         <lastmod>2026-08-31</lastmod>
+    </url>
+    <url>
+         <loc>https://textailes.github.io/mulan-documentation/manual/image-annotator/</loc>
+         <lastmod>2026-08-31</lastmod>
+    </url>
+    <url>
+         <loc>https://textailes.github.io/mulan-documentation/manual/image-viewer/</loc>
+         <lastmod>2026-08-31</lastmod>
+    </url>
+</urlset>

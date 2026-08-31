@@ -1,0 +1,61 @@
+.md-footer-meta__inner {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  position: relative;
+}
+
+.md-footer-meta__inner::before {
+  content: "";
+  grid-column: 1;
+  justify-self: start;
+  display: block;
+  width: 300px;
+  height: 50px;
+  background: url("../assets/athenarc-logo.png") no-repeat left center / contain;
+}
+
+.md-footer-meta__inner::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 300px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.md-footer-copyright {
+  grid-column: 2;
+  justify-self: center;
+  text-align: center;
+}
+
+.md-social {
+  grid-column: 3;
+  justify-self: end;
+}
+
+.project-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 2rem 0 1rem;
+}
+
+.project-logos img {
+  display: block;
+  width: auto;
+  max-width: min(360px, 80vw);
+  max-height: 90px;
+}
+
+@media (max-width: 600px) {
+  .md-footer-meta__inner::before,
+  .md-footer-meta__inner::after {
+    width: 96px;
+    height: 28px;
+  }
+}
+
