@@ -1,0 +1,56 @@
+# Site information
+site_name: MulAn Documentation
+site_url: https://textailes.github.io/mulan-documentation/
+site_author: TEXTaiLES and Athena Research Center
+site_description: User, deployment, and API documentation for the MulAn multispectral image viewer and annotator
+
+# Copyright
+copyright: Copyright &copy; 2026 TEXTaiLES &middot; Athena Research Center
+
+# Repository
+repo_name: TEXTaiLES/MulAn
+repo_url: https://github.com/TEXTaiLES/MulAn
+
+# Config
+theme:
+  name: material
+  palette:
+    scheme: slate
+    primary: white
+  logo: assets/mulan-mark.svg
+  favicon: assets/mulan-mark.svg
+  features:
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - tables
+  - toc:
+      permalink: true
+
+# Extra
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/TEXTaiLES/MulAn
+
+extra_css:
+  - stylesheets/extra.css
+extra_javascript:
+  - javascripts/extra.js
+
+# Pages
+nav:
+  - Overview: index.md
+  - Manual:
+    - Converter: manual/converter.md
+    - Image viewer: manual/image-viewer.md
+    - Image annotator: manual/image-annotator.md
+  - Deployment:
+    - Docker deployment: deployment/docker.md
+  - API: api.md
+
